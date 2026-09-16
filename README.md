@@ -1,23 +1,13 @@
-# Exact Shapley Value Algorithm: a self-contained Python example
+# Shapley Analysis: Demo Version
 
-This is a compact, standalone version of a Python tool I developed to explain
-how a collection of independent business drivers contributes to a combined
-result. It contains no confidential data, spreadsheet automation, graphical
-interface, or third-party dependency. The example uses a fictional project
-portfolio instead.
+This is a compacted, standalone "demo" version of a Python tool I developed at work (not publically available) to mathematically disaggregate the relative contributions of several independent variables to a combined result (whether commercial or technical).
+To avoid confidentiality issues and to keep the codebase accessible for all, this demo example uses a trivial "toy" project portfolio.
 
-The code is intended as evidence of Python and algorithmic programming
-experience. The main implementation is [`src/shapley.py`](src/shapley.py); it
-uses standard-library data structures and is designed to be read alongside the
-example and tests.
+The main implementation is [`src/shapley.py`](src/shapley.py), however this should be read alongside the example (program and output) as well as the tests.
 
 ## What the algorithm does
 
-The Shapley value is a fair way to divide a total change among interacting
-contributors. A contributor's value is its average *marginal* effect across all
-valid orders in which contributors can be introduced. This matters when, for
-example, the combined effect of two projects is larger than the sum of their
-separate effects.
+The Shapley value is a fair way to divide a total change among interacting contributors. A contributor's value is its average *marginal* effect across all valid orderings in which contributors can be introduced. This matters when, for example, the combined effect of two projects is larger than the sum of their separate effects (in non-zero-sum games, i.e. most real-world economic situations!)
 
 The implementation supports precedence constraints such as `Research before
 Prototype`. It represents a coalition as an immutable `frozenset` and the
@@ -30,10 +20,10 @@ constraints as a directed graph of prerequisites. It then:
 4. Weights each transition by the proportion of valid orderings that use it,
    and sums its marginal contribution for each player.
 
-This is exact: it does not sample or approximate any ordering. The number of
-states can grow exponentially, so this form is best suited to modest numbers of
-players. The dynamic-programming count avoids separately generating every valid
-permutation.
+As it does not sample or approximate any ordering, the number of
+states can grow exponentially, so this calculation is best suited to modest numbers of
+players. The "dynamic-programming" count avoids separately generating every valid
+permutation (by calculating the relative frequency of permutations given a specific combination.) 
 
 ## Run the example
 
