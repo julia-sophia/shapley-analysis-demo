@@ -1,0 +1,21 @@
+Exact precedence-constrained Shapley values
+Feasible coalitions: 5
+Valid orderings:     2
+
+Coalition values:
+  (empty)                       100.00
+  Research                      107.00
+  Research, Prototype           119.00
+  Research, Launch              132.00
+  Research, Prototype, Launch   154.00
+
+Attribution of the total change:
+  Research       +7.00
+  Prototype     +17.00
+  Launch        +30.00
+  Total change  +54.00
+
+Checks:
+  Baseline score: 100.00
+  Full score:     154.00
+  Reconciliation error: 0.00e+00
