@@ -1,13 +1,13 @@
 # Shapley Analysis: Demo Version
 
-This is a compacted, standalone "demo" version of a Python tool I developed at work (not publically available) to mathematically disaggregate the relative contributions of several independent variables to a combined result (whether commercial or technical).
-To avoid confidentiality issues and to keep the codebase accessible for all, this demo example uses a trivial "toy" project portfolio.
+This is a compact, standalone "demo" version of a Python tool I developed at work (not publically available) to mathematically disaggregate the relative contributions of several independent variables to a combined result (whether commercial or technical).
+To keep the codebase clean and avoid IP issues, I used a trivial/toy project portfolio and dropped support for Excel input in this demo version.
 
 The main implementation is [`src/shapley.py`](src/shapley.py), however this should be read alongside the example (program and output) as well as the tests.
 
 ## What the algorithm does
 
-The Shapley value is a fair way to divide a total change among interacting contributors. A contributor's value is its average *marginal* effect across all valid orderings in which contributors can be introduced. This matters when, for example, the combined effect of two projects is larger than the sum of their separate effects (in non-zero-sum games, i.e. most real-world economic situations!)
+The [Shapley value](https://en.wikipedia.org/wiki/Shapley_value) is a fair way to divide a total gain among a group of contributors. A contributor's value is its average *marginal* effect across all valid orderings in which contributors can be introduced. This matters when, for example, the combined effect of two projects (contributors) is larger than the sum of their separate effects (in non-zero-sum games, i.e. most real-world economic situations!)
 
 The implementation supports precedence constraints such as `Research before
 Prototype`. It represents a coalition as an immutable `frozenset` and the
